@@ -1,0 +1,16 @@
+﻿CS 161 - Assignment 02
+Basic Elements of C++
+
+
+ This is a decorative image.
+Assignment 1 - ohm's law V=IR 
+
+
+
+Assignment:  
+Ohm’s Law is a formula that describes the relationship between voltage, current, and resistance within a circuit. Using the Web, locate the formula for Ohm’s Law. Write a program that inputs (from the user) current (measured in Amps) and resistance (measured in Ohms) within a given circuit. Calculate the voltage (measured in Volts) needed to supply the circuit and output the results. 
+Deliverables:
+Please upload your program source code (.cpp file) as usual.  Name your file a02.cpp.  Be sure to comment your code as required, and to acknowledge any sources of help you may have received.  Your header comments should include the identification of the assignment and your name(s).  It should also include a comment indicating any sources of help you may have received. If there were none, the line should read:
+
+
+// Sources: None.

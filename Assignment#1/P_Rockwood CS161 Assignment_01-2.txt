@@ -1,0 +1,60 @@
+CS 161 - Assignment 01
+An Overview of Computers and Programming Languages
+
+
+Assignment:  
+
+
+1. The dealer’s cost of a car is 85% of the listed price. The dealer would accept any offer that is at least $500 over the dealer’s cost. Design an algorithm that prompts the user to input the list price of the car and print the least amount that the dealer would accept for the car.
+
+
+	1. Prompt user to input list price.
+	2. Assign user input to variable ‘list_price’
+	3. Assign (list_price * 0.85 + 500) to variable ‘min_price’
+	4. Print: ‘Your minimum asking price is: ’ + min_price
+
+
+2. You are given a list of students’ names and their test scores. Design an algorithm that does the following: 
+a. Calculates the average test scores.
+
+	1. Create an ordered list of student names called ‘student_names’, input names
+	2. Create an ordered list of student scores called ‘student_scores’, input scores
+	   in the same order as with student_names, so the first element of student_scores is
+	   the score of the first element in student names etc...
+	3. Initialize with zero a variable called ‘sum_scores’ 
+	4. Initialize with zero a variable called 'list_count'
+	5. Iterate through ‘student scores’ 
+   		a. Add each score to sum_scores.
+		b. Increment count
+   	6. Assign sum_scores / list_count to variable ‘avg_score’ 
+                        
+b. Determines and prints the names of all the students whose test scores are below the average test score.
+
+	1. Initialize with zero a variable called ‘low_index’ 
+	2. Iterate through student scores
+		1. Test if score is less than avg_score
+		2. If yes, Print: student_names[low_index] + ‘ : ‘ + student_scores[low_index]
+		3. Increment low_index
+
+c. Determines the highest test score.
+
+	1. Initialize with a zero a variable called ‘best_score’
+	2. Initialize with an empty-string a variable called ‘best_name’
+	3. Initialize with a zero a variable called 'best_index'
+	4. Iterate through student_scores
+		1. Test if each score is larger than best_score
+     		2. If yes: assign current score to best_score, assign student_names[count] to best_name
+		3. Increment best_index
+
+d. Prints the names of all the students whose test scores are the same as the highest test score.
+
+	1. Initialize with a zero a variable called 'TforB_index'
+  	2. Iterate through student scores
+		1. Test if the current score is equal to best_score
+		2. If yes: Print: “Tied for best” + student_names[TforB_index]
+		3. Increment TforB_index
+
+
+(Each of the parts a, b, c, and d must be solved as a subproblem. The main algorithm combines the solutions of the subproblems
+Deliverables:
+a01.txt with all the algorithms written in numbered steps.
