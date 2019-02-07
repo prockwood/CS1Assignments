@@ -17,18 +17,17 @@
 //************************************************************************
 
 
-#include <iostream>
 #include <iomanip>
 #include <fstream>
 
 using namespace std;
 
-
 int main() {
     ifstream inFile; //input file stream variable
     ofstream outFile; //output file stream variable
 
-    inFile.open("times.txt"); //open an existing file to read from
+    inFile.open("times.txt"); //open an existing file in the local directory
+                              //to read from
     outFile.open("output.txt"); //create a new output file
 
     //input variables
@@ -39,7 +38,7 @@ int main() {
     int time = 0;
     int dishes_count = 0;
 
-    while(!inFile.eof()) { //loop until run out of input lines
+    while(!inFile.eof()) { //outer-loop until run out of input lines
         inFile >> start_dish // load variables with new line's data
                >> marginal_dish
                >> max_time;
@@ -47,9 +46,9 @@ int main() {
         dishes_count = 0;
         current_dish = start_dish;
 
-        while(time+current_dish <= max_time){ //loop until cooking time > allowed time
+        while(time+current_dish <= max_time){ //inner-loop until time + next_dish > max_time
             time = time + current_dish; //update cooking time
-            current_dish = current_dish + marginal_dish; //update time to cook next dish
+            current_dish = current_dish + marginal_dish; //update time to cook next_dish
             dishes_count++; // increment # of dishes cooked
             }
         // output a row of the input data plus dishes_count
