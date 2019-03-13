@@ -1,0 +1,64 @@
+Write a program that uses a two-dimensional array to store the highest and lowest temperatures for each month of the year.  You should also have a parallel array to store the names of the 12 months.  The program should read the Months’ names, and the temperatures from a given input file called temps.txt.  The program should output the highest and lowest temperatures for the year, and the months that correspond to those temperatures.  Your program MUST use the following functions:
+
+Function loadData:  The function reads and stores data in the parallel array and 2D array from a text file (temps.txt).
+
+void loadData(ifstream &infile, string months[], int temp[][2], int &rows);
+
+Function tempeHigh:  This function finds and updates the high temperature and the corresponding month of the year.
+void tempHigh(string months[], int temp[][2], int rows, string &month, int &hightemp);
+
+Function tempLow:  This function finds and updates the low temperature and the corresponding month of the year.
+void tempLow(string months[], int temp[][2], int rows, string &month, int &lowtemp);
+
+Design Considerations
+Please use a while loop to read all lines of text from input file.  Keep the input file in the same directory as your project. Remember to include the following statements to read from an input file:
+#include <fstream>
+ifstream inFile;
+inFile.open("temps.txt");
+inFile.close();
+
+I would suggest printing out the contents of your 1D month names array and 2D high and low temperature array after reading in the data from temps.txt.
+To find the maximum or minimum value in an array, set your max and min variables to the contents of row 0. Then look through the remaining cells, comparing against max and min and updating when you find a value which is bigger than max or smaller than min.
+Your months are will have 12 rows and look like the following after the temps.txt file is read:
+months[12] ->
+0 January
+1 February
+2 March
+3 April
+4 May
+5 June
+6 July
+7 August
+8 September
+9 October
+10 November
+11 December
+
+Your temps 2D array will have 12 rows and 2 columns and look like the following after the temps.txt file is read. The row number in this table corresponds with the same row number in the months array to find the month name (row 3 in temps is row 3 in months for April):
+temps[12][2] ->
+
+
+     0    1
+0    47   36
+1    51   37
+2    57   39
+3    62   43
+4    69   48
+5    73   52
+6    81   56
+7    80   57
+8    75   52
+9    64   46
+10   52   41
+11   45   35
+
+Deliverables:
+You must use all the given function prototypes and not change them.  You can add more functions if you like.
+Please upload your program source code (.cpp file) as usual.  Name your file a07.cpp.  Be sure to comment your code as required, and to acknowledge any sources of help you may have received.  Your header comments should include the identification of the assignment and your name.  It should also include a comment indicating any sources of help you may have received. If there were none, the line should read:
+
+// Sources: None.
+
+Example Run:
+Using the temps.txt, below is an example of a sample run:
+Maximum temp was 81 degrees in July.
+Minimum temp was 35 degrees in December.

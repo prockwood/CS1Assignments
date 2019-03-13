@@ -1,5 +1,5 @@
-//************************************************************************
-// Program Name: Gym Dues Calulator
+////////////////////////////////////////////////////////////////////////////////
+// Program Name: Gym Dues Calculator
 // File Name:    a06.cpp
 // Author:       Peter Rockwood
 // Date:         02/20/2019
@@ -12,10 +12,10 @@
 //
 // Sources:      https://stackoverflow.com/questions/25475384/when-and-why-do-i-need-to-use-cin-ignore-in-c
 //               http://www.cplusplus.com/forum/beginner/2957/
-//************************************************************************
+////////////////////////////////////////////////////////////////////////////////
 
-#include <iostream>
-#include <iomanip>
+#include <iostream> //cin, cin.fail(), cout
+#include <iomanip> //fixed, showpoint, setprecision()
 using namespace std;
 
 //declare functions
@@ -31,7 +31,6 @@ int main() {
         int personal = -1;
         char menu = ' ';
         double price = 0.0;
-
 
         cout << "Please enter 'a' to calculate the cost of membership,\n"
              << "or enter 'b' to quit the program: ";
@@ -56,7 +55,7 @@ int main() {
 ////////////////////////////////////////////////////////////////////////////////
 //Function Name: information
 //Arguments:     None
-//Description:   Prints the gym pricing structure.
+//Description:   Prints the gym pricing structure. No return value.
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -81,18 +80,18 @@ void information() {
 //Description:   Prompts the user for senior status (over 60 years of age),
 //               number of membership months prepay and number of personal
 //               training sessions prepay. Assigns values to variables declared
-//               outside the function via reference.
+//               outside the function via reference. No return value.
 ////////////////////////////////////////////////////////////////////////////////
 
 void getInfo(bool &senior, int &months, int &personal) { //referential arguments, match variables in main()
-    char sbool = ' ';//variable to capture senior status
+    char sbool = ' ';//variable to capture senior status as 'y' or 'n'
 
     while (sbool != 'y' && sbool != 'n') { //loop until senior is 'y' or 'n'
         cout << "Are you over the age of 60? (y or n): ";
         cin >> sbool;
         cout << endl;
 
-        if (sbool == 'y') { //map sbool to senior
+        if (sbool == 'y') { //map: (char sbool) to (bool senior)
             senior = true;
         } else if (sbool == 'n') {
             senior = false;
@@ -113,7 +112,7 @@ void getInfo(bool &senior, int &months, int &personal) { //referential arguments
         }
     }
 
-    while (personal < 0) { //loop until personal > -1. 0 is valid
+    while (personal < 0) { //loop until personal > -1. (0 is valid input)
         cout << "Please enter the number of personal training sessions\n"
              << "you would like to purchase: ";
         cin >> personal;
@@ -123,7 +122,7 @@ void getInfo(bool &senior, int &months, int &personal) { //referential arguments
             cin.clear(); //clear error flag
             cin.ignore(1000,'\n'); //clear input stream
             personal = -1; // cin.fail(), when true, assigns personal=0
-                           // but 0 is a valid input for the program.
+                           // but 0 is a valid value for persornal var.
         }
     }
     return; //no return value
@@ -141,17 +140,17 @@ double calcCost(bool senior, int months, int personal) {
     double  price = 0.0; // membership price
     double  sessPrice = 0.0; // session price
 
-    price = months * double(50); // # months * $50
-    sessPrice = personal * double(30);// # sessions * $30
+    price = months * 50.0; // # months * $50
+    sessPrice = personal * 30.0;// # sessions * $30
 
     if (senior == true) { //senior discount(price * (100%-30%))
-        price *= double(0.7);
+        price *= 0.7;
     }
     if (months >= 12) { //membership bulk discount(price* (100%-15%))
-        price *= double(0.85);
+        price *= 0.85;
     }
     if (personal >= 5) { //personal training bulk discount(sessPrice*(100%-20%))
-        sessPrice *= double(0.8);
+        sessPrice *= 0.8;
     }
 
     price += sessPrice; //total membership and personal training prices

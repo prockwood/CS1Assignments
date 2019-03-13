@@ -1,0 +1,15 @@
+
+
+
+Write a program that uses a struct and an array of structs to store the 12 months, and the high temperature and low temperature for each month.  The program should read the Months’ names, and the temperatures from a given input file called temps.txt.  The program should output the highest and lowest temperatures for the year, and the months that correspond to those temperatures.  Your program MUST use the following functions:
+
+Create a struct called Temperature with data members to store month, high temperature and low temperature.
+
+Function loadData:  The function reads and stores data in the array of struct from a text file (temps.txt).  void loadData(ifstream &infile, Temperature [], int &size);
+
+Function averageHigh:  This function calculates and returns that record that has the high temperature.  From that, you can print the high temperature and the corresponding month in main.  Temperature averageHigh(Temperature [], int size);
+
+Function averageLow:  This function calculates and returns that record that has the low temperature.  From that, you can print the low temperature and the corresponding month in main.  Temperature averageLow(Temperature [], int size);
+
+Design Considerations
+Please use a while loop to read all lines of text from input file.  Keep the input file in the same directory as your project.
